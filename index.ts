@@ -3,26 +3,45 @@ class Surah {
   name: string;
   indexSurah: number;
   verseCount: number;
+  arabicName: string;
 
-  constructor(name: string, indexSurah: number, verseCount: number) {
+  //   constructor(name: string, indexSurah: number, verseCount: number) {
+  //     this.name = name;
+  //     this.indexSurah = indexSurah;
+  //     this.verseCount = verseCount;
+  //   }
+
+  constructor(
+    name: string,
+    indexSurah: number,
+    verseCount: number,
+    arabicName: string | undefined
+  ) {
     this.name = name;
     this.indexSurah = indexSurah;
     this.verseCount = verseCount;
+    if (!arabicName) this.arabicName = name;
+    else this.arabicName = arabicName;
   }
 
-  get randomVerse(): number {
+  getRandomVerse(): number {
     return Math.floor(Math.random() * this.verseCount + 1);
   }
 }
 
 // Database Surah and Verse 📘
 const surahDb: Surah[] = [
-  new Surah("an-nas", 114, 6),
-  new Surah("al-falaq", 113, 5)
+  new Surah("an-nas", 114, 6, "النَس"),
+  new Surah("al-falaq", 113, 5, undefined)
 ];
 
-function randomSurah() {
-  const random = Math.floor(Math.random() * surahDb.length + 1);
-  console.log(surahDb[random]);
+function getRandomSurah(): Surah {
+  const random: number = Math.floor(Math.random() * surahDb.length);
   return surahDb[random];
+}
+
+function randomAll(): string {
+  const randomSurah: Surah = getRandomSurah();
+  return `✉️surah: ${randomSurah.name},
+🔁verse: ${randomSurah.getRandomVerse()}`;
 }

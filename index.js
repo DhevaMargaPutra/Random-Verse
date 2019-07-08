@@ -1,27 +1,35 @@
 "use strict";
-//
+// Surah class ✉️
 var Surah = /** @class */ (function () {
-    function Surah(name, indexSurah, verseCount) {
+    //   constructor(name: string, indexSurah: number, verseCount: number) {
+    //     this.name = name;
+    //     this.indexSurah = indexSurah;
+    //     this.verseCount = verseCount;
+    //   }
+    function Surah(name, indexSurah, verseCount, arabicName) {
         this.name = name;
         this.indexSurah = indexSurah;
         this.verseCount = verseCount;
+        if (!arabicName)
+            this.arabicName = name;
+        else
+            this.arabicName = arabicName;
     }
-    Object.defineProperty(Surah.prototype, "randomVerse", {
-        get: function () {
-            return Math.floor(Math.random() * this.verseCount + 1);
-        },
-        enumerable: true,
-        configurable: true
-    });
+    Surah.prototype.getRandomVerse = function () {
+        return Math.floor(Math.random() * this.verseCount + 1);
+    };
     return Surah;
 }());
 // Database Surah and Verse 📘
 var surahDb = [
-    new Surah("an-nas", 114, 6),
-    new Surah("al-falaq", 113, 5)
+    new Surah("an-nas", 114, 6, "النَس"),
+    new Surah("al-falaq", 113, 5, undefined)
 ];
-function randomSurah() {
-    var random = Math.floor(Math.random() * surahDb.length + 1);
-    console.log(surahDb[random]);
+function getRandomSurah() {
+    var random = Math.floor(Math.random() * surahDb.length);
     return surahDb[random];
+}
+function randomAll() {
+    var randomSurah = getRandomSurah();
+    return "\u2709\uFE0Fsurah: " + randomSurah.name + ",\n\uD83D\uDD01verse: " + randomSurah.getRandomVerse();
 }
