@@ -1,0 +1,19 @@
+{
+  "name": "random-quran-verse",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DhevaMargaPutra/Random-Verse.git"
+  },
+  "author": "Dheva Marga Putra",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DhevaMargaPutra/Random-Verse/issues"
+  },
+  "homepage": "https://github.com/DhevaMargaPutra/Random-Verse#readme"
+}

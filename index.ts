@@ -31,8 +31,11 @@ class Surah {
 
 // Database Surah and Verse 📘
 const surahDb: Surah[] = [
-  new Surah("an-nas", 114, 6, "النَس"),
-  new Surah("al-falaq", 113, 5, undefined)
+  new Surah("at-takatsur", 102, 8, undefined),
+  new Surah("al-qoriah", 101, 11, undefined),
+  new Surah("al-adiyat", 100, 11, undefined),
+  new Surah("az-zalzalah", 99, 8, undefined),
+  new Surah("an-naba", 98, 8, undefined)
 ];
 
 function getRandomSurah(): Surah {
@@ -40,8 +43,10 @@ function getRandomSurah(): Surah {
   return surahDb[random];
 }
 
-function randomAll(): string {
+function randomAll(): void {
   const randomSurah: Surah = getRandomSurah();
-  return `✉️surah: ${randomSurah.name},
-🔁verse: ${randomSurah.getRandomVerse()}`;
+  const result = `✉️ surah: ${randomSurah.name},
+🔁 verse: ${randomSurah.getRandomVerse()}`;
+
+  alert(result);
 }

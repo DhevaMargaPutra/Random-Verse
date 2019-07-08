@@ -22,8 +22,11 @@ var Surah = /** @class */ (function () {
 }());
 // Database Surah and Verse 📘
 var surahDb = [
-    new Surah("an-nas", 114, 6, "النَس"),
-    new Surah("al-falaq", 113, 5, undefined)
+    new Surah("at-takatsur", 102, 8, undefined),
+    new Surah("al-qoriah", 101, 11, undefined),
+    new Surah("al-adiyat", 100, 11, undefined),
+    new Surah("az-zalzalah", 99, 8, undefined),
+    new Surah("an-naba", 98, 8, undefined)
 ];
 function getRandomSurah() {
     var random = Math.floor(Math.random() * surahDb.length);
@@ -31,5 +34,6 @@ function getRandomSurah() {
 }
 function randomAll() {
     var randomSurah = getRandomSurah();
-    return "\u2709\uFE0Fsurah: " + randomSurah.name + ",\n\uD83D\uDD01verse: " + randomSurah.getRandomVerse();
+    var result = "\u2709\uFE0F surah: " + randomSurah.name + ",\n\uD83D\uDD01 verse: " + randomSurah.getRandomVerse();
+    alert(result);
 }
